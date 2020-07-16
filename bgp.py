@@ -20,7 +20,7 @@ def init_db():
 
   mycursor = mydb.cursor()
   
-  sql = "drop table prefixes"
+  sql = "drop table  IF EXISTS prefixes"
   mycursor.execute(sql)
   sql = "create table prefixes(prefix_id INT NOT NULL AUTO_INCREMENT, prefix VARCHAR(100) NOT NULL, PRIMARY KEY (prefix_id));"
   mycursor.execute(sql)
