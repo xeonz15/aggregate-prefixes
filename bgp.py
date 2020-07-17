@@ -5,6 +5,16 @@ import os
 import pymysql
 from aggregate_prefixes import aggregate_prefixes
 
+if len(sys.argv)<3:
+    print("\nUsage: "+sys.argv[0]+" Source_File AS_Number\n")
+    sys.exit()
+
+
+if not os.path.isfile(filepath):
+    print("\nFile path {} does not exist. Exiting...".format(filepath))
+    sys.exit()
+
+
 filepath = sys.argv[1]
 SourceAS = sys.argv[2]
 ASPrefixesFile = "Aggregated.txt"
@@ -40,15 +50,6 @@ def upload_to_db(prefix):
 
 
 def main():
-
-   if len(sys.argv)<3:
-       print("Usage: "+sys.argv[0]+" Source_File AS_Number")
-       sys.exit()
-
-
-   if not os.path.isfile(filepath):
-       print("File path {} does not exist. Exiting...".format(filepath))
-       sys.exit()
 
    ASPrefixesList = []
    
